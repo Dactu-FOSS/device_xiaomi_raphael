@@ -6,9 +6,15 @@
 
 $(call inherit-product, device/xiaomi/raphael/device.mk)
 
-# Inherit some common BeastROMs stuff.
-$(call inherit-product, vendor/beast/config/common.mk)
+# Inherit some common LineageOS stuff.
+$(call inherit-product, vendor/lineage/config/common.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+
+# Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_raphael
@@ -17,13 +23,6 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi K20 Pro
 PRODUCT_MANUFACTURER := Xiaomi
 
-BEAST_BUILD_TYPE := OFFICIAL
-
-BUILD_FINGERPRINT := "Xiaomi/davinci_eea/davinci:9/PKQ1.190302.001/V10.3.7.0.PFJEUXM:user/release-keys"
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="davinci_eea-user 9 PKQ1.190302.001 V10.3.7.0.PFJEUXM release-keys" \
-    PRODUCT_NAME="raphael" \
-    TARGET_DEVICE="raphael"
+BUILD_FINGERPRINT := Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.2.0.RFKMIXM:user/release-keys
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
